@@ -13,7 +13,7 @@ bintray {
 //    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
 //    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
     user = "${bintray.user}"
-    key = "${bintray.api_key}"
+    key = "${bintray.apikey}"
     publications = ['MyPublication']
     pkg {
         repo = 'org.jwermuth'
