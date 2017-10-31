@@ -4,7 +4,7 @@ publishing {
             from components.java
             groupId 'dk.danskespil.gradle.plugins'
             artifactId 'gradle-plugin-test-spock-helpers'
-            version "${project.version.toString()}"
+            version "${version}"
         }
     }
 }
@@ -23,7 +23,7 @@ bintray {
         licenses = ['GPL-3.0']
         vcsUrl = 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
         version {
-            name = "${project.version.toString()}"
+            name = "${version}"
         }
     }
 }

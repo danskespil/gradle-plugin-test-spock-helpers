@@ -73,5 +73,7 @@ dependencies {
   * e.g. ./gradlew clean release -Prelease.scope=patch -Prelease.stage=final
   * ./gradlew clean release # snapshot version
   * ./gradlew clean release -Prelease.scope=patch -Prelease.stage=dev # e.g. fiddling with readme
-* Deployment
+* Deployment to bintray.
   * ./gradlew clean bintrayUpload
+  * $ ./gradlew clean build bintrayUpload -PbintrayUser=USER -PbintrayApiKey=KEY
+
