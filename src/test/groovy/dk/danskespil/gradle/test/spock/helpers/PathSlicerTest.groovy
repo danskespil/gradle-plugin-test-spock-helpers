@@ -1,6 +1,5 @@
 package dk.danskespil.gradle.test.spock.helpers
 
-import dk.danskespil.gradle.task.helpers.BadPathException
 import spock.lang.Specification
 import spock.lang.Unroll
 
