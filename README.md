@@ -1,3 +1,5 @@
+Build Status master branch [![Build Status master branch](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers.svg?branch=master)](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers)
+
 # gradle-test-spock-helpers
 This project helps me (and perhaps you ?) to test plugins written in gradle.
 
