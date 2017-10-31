@@ -50,9 +50,10 @@ bintray {
 //    key = "${bapi_key}"
     publications = ['MyPublication']
     pkg {
-        repo = 'maven'
+        repo = 'org.jwermuth'
         name = 'gradle-plugin-test-spock-helpers'
-        userOrg = 'jwermuth/org.jwermuth'
+        // optional. Only if repo belongs to an org
+        //userOrg = 'jwermuth'
         licenses = ['GPL-3.0']
         vcsUrl = 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
         version {
