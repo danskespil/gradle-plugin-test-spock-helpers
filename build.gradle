@@ -12,6 +12,9 @@ plugins {
 allprojects {
     repositories {
         jcenter()
+        maven {
+            url "https://dl.bintray.com/jwermuth/org.jwermuth"
+        }
     }
     apply plugin: 'maven'
     apply plugin: 'maven-publish'
@@ -32,44 +35,16 @@ release {
 
 apply plugin: 'groovy'
 
-publishing {
-    publications {
-        MyPublication(MavenPublication) {
-            from components.java
-            groupId 'dk.danskespil.gradle.plugins'
-            artifactId 'gradle-plugin-test-spock-helpers'
-            version "0.0.3"
-        }
-    }
-}
-
-bintray {
-    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
-    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
-//    user = "${buser}"
-//    key = "${bapi_key}"
-    publications = ['MyPublication']
-    pkg {
-        repo = 'org.jwermuth'
-        name = 'gradle-plugin-test-spock-helpers'
-        // optional. Only if repo belongs to an org
-        //userOrg = 'jwermuth'
-        licenses = ['GPL-3.0']
-        vcsUrl = 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
-        version {
-            name = "0.0.3"
-        }
-    }
-}
-
-
 dependencies {
     compile gradleApi()
     compile gradleTestKit()
+    testCompile 'dk.danskespil.gradle.plugins:gradle-plugin-test-spock-helpers:0.0.3'
     compile('org.spockframework:spock-core:1.0-groovy-2.4') {
         exclude module: 'groovy-all'
     }
 }
+
+apply from: "${projectDir}/gradle/bintray.gradle"
 
 test {
     testLogging {
