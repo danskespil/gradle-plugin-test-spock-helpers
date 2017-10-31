@@ -65,3 +65,12 @@ dependencies {
     }
 }
 ```
+
+# Releasing
+* Release, following ajoberstar plugin https://github.com/ajoberstar/gradle-git/wiki/Release%20Plugins
+  * ./gradlew clean release -Prelease.scope=major_minor_OR_patch -Prelease.stage=final_OR_rc_OR_milestone_OR_dev
+  * e.g. ./gradlew clean release -Prelease.scope=patch -Prelease.stage=final
+  * ./gradlew clean release # snapshot version
+  * ./gradlew clean release -Prelease.scope=patch -Prelease.stage=dev # e.g. fiddling with readme
+* Deployment
+  * ./gradlew clean bintrayUpload

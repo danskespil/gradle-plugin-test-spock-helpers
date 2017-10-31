@@ -1,9 +1,64 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+    id 'org.ajoberstar.grgit' version '1.7.1'
+    id 'org.ajoberstar.release-opinion' version '1.7.1'
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'java'
+}
+
+import org.ajoberstar.gradle.git.release.opinion.Strategies
+
+release {
+    grgit = org.ajoberstar.grgit.Grgit.open()
+    defaultVersionStrategy = Strategies.SNAPSHOT
+    versionStrategy Strategies.SNAPSHOT
+    tagStrategy {
+        prefixNameWithV = false // defaults to true
+        generateMessage = { version -> "My new version $version.version" }
+    }
+}
+
 apply plugin: 'groovy'
 
-repositories {
-    jcenter()
-    mavenCentral()
+publishing {
+    publications {
+        MyPublication(MavenPublication) {
+            from components.java
+            groupId 'dk.danskespil.gradle.plugins'
+            artifactId 'gradle-plugin-test-spock-helpers'
+            version "${version}"
+        }
+    }
 }
+
+bintray {
+    user = "${buser}"
+    key = "${bapi_key}"
+    publications = ['MyPublication']
+    pkg {
+        repo = 'maven'
+        name = 'gradle-plugin-test-spock-helpers'
+        userOrg = 'jwermuth.org'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
+        version {
+            name = "${version}"
+        }
+    }
+}
+
 
 dependencies {
     compile gradleApi()
@@ -22,4 +77,3 @@ test {
 task wrapper(type: Wrapper) {
     gradleVersion = "4.2"
 }
-
