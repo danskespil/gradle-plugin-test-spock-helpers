@@ -4,13 +4,13 @@ publishing {
             from components.java
             groupId 'dk.danskespil.gradle.plugins'
             artifactId 'gradle-plugin-test-spock-helpers'
-            version "0.0.3"
+            version "${version}"
         }
     }
 }
 
 bintray {
-    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+        user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
     key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
 //    user = "${buser}"
 //    key = "${bapi_key}"
@@ -23,7 +23,7 @@ bintray {
         licenses = ['GPL-3.0']
         vcsUrl = 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
         version {
-            name = "0.0.3"
+            name = "${version}"
         }
     }
 }
