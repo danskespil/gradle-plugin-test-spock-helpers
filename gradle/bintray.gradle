@@ -3,7 +3,7 @@ publishing {
         MyPublication(MavenPublication) {
             from components.java
             groupId 'dk.danskespil.gradle.plugins'
-            artifactId 'gradle-plugin-test-spock-helpers'
+            artifactId "${project.name}"
             version "${project.version}"
         }
     }
@@ -17,7 +17,7 @@ bintray {
     publications = ['MyPublication']
     pkg {
         repo = 'org.jwermuth'
-        name = 'gradle-plugin-test-spock-helpers'
+        name = "${project.name}"
         // optional. Only if repo belongs to an org
         //userOrg = 'jwermuth'
         licenses = ['GPL-3.0']
