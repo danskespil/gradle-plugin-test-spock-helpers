@@ -1,5 +1,5 @@
-Build Status master branch [![Build Status master branch](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers.svg?branch=master)](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers)
-[ ![Download](https://api.bintray.com/packages/jwermuth/org.jwermuth/gradle-plugin-test-spock-helpers/images/download.svg) ](https://bintray.com/jwermuth/org.jwermuth/gradle-plugin-test-spock-helpers/_latestVersion)
+[![Build Status master branch](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers.svg?branch=master)](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers) Build Status master branch 
+[ ![Download](https://api.bintray.com/packages/jwermuth/org.jwermuth/gradle-plugin-test-spock-helpers/images/download.svg) ](https://bintray.com/jwermuth/org.jwermuth/gradle-plugin-test-spock-helpers/_latestVersion) Latest version
 
 # gradle-test-spock-helpers
 This project helps us at Danske Spil (and perhaps you ?) to test plugins written in gradle.
