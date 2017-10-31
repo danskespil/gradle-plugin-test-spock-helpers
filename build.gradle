@@ -50,7 +50,7 @@ bintray {
     pkg {
         repo = 'maven'
         name = 'gradle-plugin-test-spock-helpers'
-        userOrg = 'jwermuth.org'
+        userOrg = 'jwermuth/org.jwermuth'
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
         version {
