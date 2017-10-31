@@ -38,23 +38,25 @@ publishing {
             from components.java
             groupId 'dk.danskespil.gradle.plugins'
             artifactId 'gradle-plugin-test-spock-helpers'
-            version "${version}"
+            version "0.0.3"
         }
     }
 }
 
 bintray {
-    user = "${buser}"
-    key = "${bapi_key}"
+    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+//    user = "${buser}"
+//    key = "${bapi_key}"
     publications = ['MyPublication']
     pkg {
         repo = 'maven'
         name = 'gradle-plugin-test-spock-helpers'
         userOrg = 'jwermuth/org.jwermuth'
-        licenses = ['Apache-2.0']
+        licenses = ['GPL-3.0']
         vcsUrl = 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
         version {
-            name = "${version}"
+            name = "0.0.3"
         }
     }
 }
