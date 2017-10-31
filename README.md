@@ -1,7 +1,7 @@
 Build Status master branch [![Build Status master branch](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers.svg?branch=master)](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers)
 
 # gradle-test-spock-helpers
-This project helps me (and perhaps you ?) to test plugins written in gradle.
+This project helps us at Danske Spil (and perhaps you ?) to test plugins written in gradle.
 
 If you get around to writing plugins, it can take a while to figure out how to test them.
 This project aids you  by providing a base test class based on the *TemporaryFolder* implementation.
