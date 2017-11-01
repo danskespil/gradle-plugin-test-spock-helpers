@@ -3,7 +3,7 @@
 [ ![Download](https://api.bintray.com/packages/jwermuth/org.jwermuth/gradle-plugin-test-spock-helpers/images/download.svg) ](https://bintray.com/jwermuth/org.jwermuth/gradle-plugin-test-spock-helpers/_latestVersion) Latest version
 
 # gradle-test-spock-helpers
-This project helps us at Danske Spil (and perhaps you ?) to test plugins written in gradle.
+This project helps us at Danske Spil and Lund&Bendsen (and perhaps you ?) to test plugins written in gradle.
 
 If you get around to writing plugins, it can take a while to figure out how to test them.
 This project aids you  by providing a base test class based on the *TemporaryFolder* implementation.
