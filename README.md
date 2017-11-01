@@ -67,8 +67,18 @@ dependencies {
     }
 }
 ```
+Why do you care ? You will get a working example, that is being used, and maintained by other people. You can skip some of the 
+```
+10 get a simple example running
+20 meet a real problem
+30 read documentation
+40 goto 10
+```
+stuff.
 
-# Releasing
+# Releasing and publishing
+This is just for the maintainer (me).
+
 * Release, following ajoberstar plugin https://github.com/ajoberstar/gradle-git/wiki/Release%20Plugins
   * ./gradlew clean release -Prelease.scope=major_minor_OR_patch -Prelease.stage=final_OR_rc_OR_milestone_OR_dev
   * e.g. ./gradlew clean release -Prelease.scope=patch -Prelease.stage=final
