@@ -86,5 +86,5 @@ This is just for the maintainer (me).
   * ./gradlew clean release -Prelease.scope=patch -Prelease.stage=dev # e.g. fiddling with readme
 * Deployment to bintray.
   * ./gradlew clean bintrayUpload
-  * $ ./gradlew clean build bintrayUpload -PbintrayUser=USER -PbintrayApiKey=KEY
+  * $ ./gradlew clean build bintrayUpload
 
