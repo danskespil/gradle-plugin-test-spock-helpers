@@ -3,10 +3,23 @@
 // To avoid this issue https://github.com/gradle/gradle/issues/1118, which can cause transitive dependencies of your
 //   published artifacts not to be included, make sure to apply the java-library plugin to your build script.
 // See also https://docs.gradle.org/current/userguide/java_library_plugin.html for configuration of java-library plugin
-apply plugin:'java'
-apply plugin:'java-library'
+apply plugin: 'java'
+apply plugin: 'java-library'
 // maven publish is required for gradle-bintray-plugin
 apply plugin: 'maven-publish'
+
+// At the moment the Java Library plugin is only wired to behave correctly with the java plugin. Other plugins,
+// such as the Groovy plugin, may not behave correctly. In particular, if the Groovy plugin is used in addition
+// to the java-library plugin, then consumers may not get the Groovy classes when they consume the library.
+// To workaround this, you need to explicitly wire the Groovy compile dependency, like this:
+configurations {
+    apiElements {
+        outgoing.variants.getByName('classes').artifact(
+                file: compileGroovy.destinationDir,
+                type: ArtifactTypeDefinition.JVM_CLASS_DIRECTORY,
+                builtBy: compileGroovy)
+    }
+}
 
 publishing {
     publications {
