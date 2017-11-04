@@ -91,4 +91,4 @@ This is just for the maintainer (me, for the moment).
   ** bintrayUser=USER
   ** bintrayApiKey=KEY
   * ./gradlew clean bintrayUpload
-  * ./gradlew clean build bintrayUpload
+  * ./gradlew clean generatePomFileForMyPublicationPublication bintrayUpload

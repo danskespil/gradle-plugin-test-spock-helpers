@@ -21,6 +21,28 @@ configurations {
     }
 }
 
+// Create the pom configuration:
+def pomConfig = {
+    licenses {
+        license {
+            name 'GPL-3.0'
+            url 'http://fsf.org/'
+            distribution 'repo'
+        }
+    }
+    developers {
+        developer {
+            id "jwermuth"
+            name "Jesper Agerled Wermuth"
+            email "jwermuth@gmail.com"
+        }
+    }
+
+    scm {
+        url 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
+    }
+}
+
 publishing {
     publications {
         MyPublication(MavenPublication) {
@@ -28,6 +50,13 @@ publishing {
             groupId 'dk.danskespil.gradle.plugins'
             artifactId "${project.name}"
             version "${project.version}"
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'Your description of the lib')
+                root.appendNode('name', "${project.name}")
+                root.appendNode('url', 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git')
+                root.children().last() + pomConfig
+            }
         }
     }
 }
@@ -39,8 +68,6 @@ bintray {
     pkg {
         repo = 'org.jwermuth'
         name = "${project.name}"
-        // optional. Only if repo belongs to an org
-        //userOrg = 'jwermuth'
         licenses = ['GPL-3.0']
         vcsUrl = 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
         version {
@@ -49,3 +76,5 @@ bintray {
         }
     }
 }
+
+bintrayUpload.dependsOn build
