@@ -1,11 +1,9 @@
 package dk.danskespil.gradle.test.spock.helpers
 
-import org.gradle.testkit.runner.BuildResult
-import org.gradle.testkit.runner.GradleRunner
 import org.junit.rules.TemporaryFolder
 
 // Shorthands for building a gradle project when testing
-class TestHelper {
+class TemporaryFolderFileHelper {
     TemporaryFolder testProjectDir
 
     File createNewPath(TemporaryFolder temporaryFolder, String path) {
@@ -24,21 +22,6 @@ class TestHelper {
     // Easy creation of deep paths with or without files 'at the end'
     File createPathInTemporaryFolder(String path) {
         createNewPath(testProjectDir, path)
-    }
-
-    BuildResult buildWithTasks(String... tasks) {
-        return base(testProjectDir.root, tasks).build()
-    }
-
-    BuildResult buildAndFailWithTasks(String... tasks) {
-        return base(testProjectDir.root, tasks).buildAndFail()
-    }
-
-    private static base(File projectDir, String... tasks) {
-        return GradleRunner.create()
-                .withPluginClasspath()
-                .withProjectDir(projectDir)
-                .withArguments(tasks)
     }
 
     boolean existsInTemporaryFolder(String path) {

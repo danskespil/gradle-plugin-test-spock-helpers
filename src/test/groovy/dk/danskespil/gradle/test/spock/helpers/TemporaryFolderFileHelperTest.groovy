@@ -4,13 +4,13 @@ import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Specification
 
-class TestHelperTest extends Specification {
+class TemporaryFolderFileHelperTest extends Specification {
     @Rule
     final TemporaryFolder testProjectDir = new TemporaryFolder()
-    TestHelper cut
+    TemporaryFolderFileHelper cut
 
     def setup() {
-        cut = new TestHelper()
+        cut = new TemporaryFolderFileHelper()
         cut.testProjectDir = testProjectDir
     }
 
