@@ -12,9 +12,6 @@ plugins {
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url "https://dl.bintray.com/jwermuth/org.jwermuth"
-        }
     }
     apply plugin: 'maven'
     apply plugin: 'maven-publish'
