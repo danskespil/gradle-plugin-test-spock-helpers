@@ -21,6 +21,7 @@ configurations {
     }
 }
 
+def gitUrl = 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
 // Create the pom configuration:
 def pomConfig = {
     licenses {
@@ -39,7 +40,7 @@ def pomConfig = {
     }
 
     scm {
-        url 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
+        url gitUrl
     }
 }
 
@@ -52,9 +53,9 @@ publishing {
             version "${project.version}"
             pom.withXml {
                 def root = asNode()
-                root.appendNode('description', 'Your description of the lib')
+                root.appendNode('description', "${project.name}")
                 root.appendNode('name', "${project.name}")
-                root.appendNode('url', 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git')
+                root.appendNode('url', gitUrl)
                 root.children().last() + pomConfig
             }
         }
@@ -69,7 +70,7 @@ bintray {
         repo = 'oss'
         name = "${project.name}"
         licenses = ['GPL-3.0']
-        vcsUrl = 'https://github.com/jwermuth/gradle-plugin-test-spock-helpers.git'
+        vcsUrl = gitUrl
         version {
             name = "${project.version}"
             vcsTag = "${project.version}"
