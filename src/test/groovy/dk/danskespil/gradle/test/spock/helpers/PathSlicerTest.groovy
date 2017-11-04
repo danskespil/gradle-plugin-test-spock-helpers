@@ -13,7 +13,7 @@ class PathSlicerTest extends Specification {
         thrown(BadPathException)
 
         where:
-        badInput << ['', '/', '\\', '/must-not-start-with-slash']
+        badInput << ['', File.separator, '\\', "${File.separator}must-not-start-with-file-separator"]
     }
 
     @Unroll

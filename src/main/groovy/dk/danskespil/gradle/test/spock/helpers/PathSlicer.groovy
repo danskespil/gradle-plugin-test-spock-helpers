@@ -13,14 +13,14 @@ class PathSlicer {
     String[] dirNames
 
     PathSlicer(String path) {
-        if (!path || path == '/' || path.contains('\\') || path.startsWith('/')) {
+        if (!path || path == File.separator || path.contains('\\') || path.startsWith(File.separator)) {
             throw new BadPathException(path)
         }
 
         this.path = path
-        dirs = (List<String>) Arrays.asList(path.split('/'))
+        dirs = (List<String>) Arrays.asList(path.split(File.separator))
 
-        if (!path.endsWith('/')) {
+        if (!path.endsWith(File.separator)) {
             fileName = dirs.remove(dirs.size() - 1)
         }
 

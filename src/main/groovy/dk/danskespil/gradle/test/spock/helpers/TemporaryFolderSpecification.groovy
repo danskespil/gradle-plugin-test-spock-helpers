@@ -10,7 +10,6 @@ class TemporaryFolderSpecification extends Specification {
     @Rule
     final TemporaryFolder testProjectDir = new TemporaryFolder()
     File buildFile
-    PathMaker pathMaker = new PathMaker()
 
     // run before the first feature method
     def setupSpec() {
@@ -23,22 +22,4 @@ class TemporaryFolderSpecification extends Specification {
         testHelper.testProjectDir = testProjectDir
     }
 
-    // Easy creation of deep paths with or without files 'at the end'
-    File createPathInTemporaryFolder(String path) {
-        pathMaker.createNewPath(testProjectDir, path)
-    }
-
-    boolean existsInTemporaryFolder(String path) {
-        if (!path.startsWith(File.separator)) {
-            path += File.pathSeparator + path
-        }
-        return new File(testProjectDir.root.absolutePath + "${path}").exists()
-    }
-
-    File fileInTemporaryFolder(String path) {
-        if (!path.startsWith(File.separator)) {
-            path += File.pathSeparator + path
-        }
-        return new File(testProjectDir.root.getAbsolutePath() + path)
-    }
 }
