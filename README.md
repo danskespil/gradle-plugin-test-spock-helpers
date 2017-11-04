@@ -1,6 +1,6 @@
 [![Build Status master branch](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers.svg?branch=master)](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers) Build Status master branch 
 
-[ ![Download](https://api.bintray.com/packages/jwermuth/org.jwermuth/gradle-plugin-test-spock-helpers/images/download.svg) ](https://bintray.com/jwermuth/org.jwermuth/gradle-plugin-test-spock-helpers/_latestVersion) Latest version
+[ ![Download](https://api.bintray.com/packages/jwermuth/oss/gradle-plugin-test-spock-helpers/images/download.svg) ](https://bintray.com/jwermuth/oss/gradle-plugin-test-spock-helpers/_latestVersion) Latest version
 
 **This plugin is not fully publically available yet. If you use the watch feature, I will announce when its operational.**
 
