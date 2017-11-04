@@ -2,6 +2,8 @@
 
 [ ![Download](https://api.bintray.com/packages/jwermuth/org.jwermuth/gradle-plugin-test-spock-helpers/images/download.svg) ](https://bintray.com/jwermuth/org.jwermuth/gradle-plugin-test-spock-helpers/_latestVersion) Latest version
 
+**This plugin is not fully publically available yet. If you use the watch feature, I will announce when its operational.**
+
 # gradle-test-spock-helpers
 This project helps us at Danske Spil and Lund&Bendsen (and perhaps you ?) to test plugins written in gradle.
 
