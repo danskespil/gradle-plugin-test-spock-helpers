@@ -101,7 +101,6 @@ This is just for the maintainer (me, for the moment).
   * ./gradlew clean release -Prelease.scope=patch -Prelease.stage=dev # e.g. fiddling with readme
 * Deployment to bintray.
   * Provide credentials. I have added mine to ~/.gradle/gradle.properties:
-  ** bintrayUser=USER
-  ** bintrayApiKey=KEY
-  * ./gradlew clean bintrayUpload
+    * bintrayUser=USER
+    * bintrayApiKey=KEY
   * ./gradlew clean generatePomFileForMyPublicationPublication bintrayUpload
