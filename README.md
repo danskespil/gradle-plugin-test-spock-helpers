@@ -103,6 +103,6 @@ This is just for the maintainer (me, for the moment).
   * Provide credentials. I have added mine to ~/.gradle/gradle.properties:
     * bintrayUser=USER
     * bintrayApiKey=KEY
-  * ./gradlew clean generatePomFileForMyPublicationPublication bintrayUpload
+  * ./gradlew clean build generatePomFileForMyPublicationPublication bintrayUpload
 
 Releases to bintray are not automatically published, so you have to go to bintray and click your way to the last part.
