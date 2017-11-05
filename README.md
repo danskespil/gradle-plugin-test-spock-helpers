@@ -14,23 +14,36 @@ What you get is something like this:
 ```
 class TemporaryFolderSpecification extends Specification {
     @Delegate
-    static TestHelper testHelper
+    static TemporaryFolderFileHelper testHelper
     @Rule
     final TemporaryFolder testProjectDir = new TemporaryFolder()
     File buildFile
-    PathMaker pathMaker = new PathMaker()
 
     // run before the first feature method
     def setupSpec() {
-        testHelper = new TestHelper()
+        testHelper = new TemporaryFolderFileHelper()
     }
 
     // run before every feature method
     def setup() {
         buildFile = testProjectDir.newFile('build.gradle')
-        testHelper.testProjectDir = testProjectDir
+        testHelper.temporaryFolder = testProjectDir
     }
-    ... more helper stuff
+    BuildResult buildWithTasks(String... tasks) {
+        return base(testProjectDir.root, tasks).build()
+    }
+
+    BuildResult buildAndFailWithTasks(String... tasks) {
+        return base(testProjectDir.root, tasks).buildAndFail()
+    }
+
+    private static base(File projectDir, String... tasks) {
+        return GradleRunner.create()
+                .withPluginClasspath()
+                .withProjectDir(projectDir)
+                .withArguments(tasks)
+    }
+}
 ```
 Which allows you to write a test like this:
 ```

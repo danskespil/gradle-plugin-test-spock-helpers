@@ -4,9 +4,9 @@ import org.junit.rules.TemporaryFolder
 
 // Shorthands for building a gradle project when testing
 class TemporaryFolderFileHelper {
-    TemporaryFolder testProjectDir
+    TemporaryFolder temporaryFolder
 
-    File createNewPath(TemporaryFolder temporaryFolder, String path) {
+    File createPathInTemporaryFolder(String path) {
         File rv = null
 
         PathSlicer pathSlicer = new PathSlicer(path)
@@ -20,13 +20,32 @@ class TemporaryFolderFileHelper {
     }
 
     // Easy creation of deep paths with or without files 'at the end'
-    File createPathInTemporaryFolder(String path) {
-        createNewPath(testProjectDir, path)
-    }
-
     boolean existsInTemporaryFolder(String path) {
         path = normalizePath(path)
-        return new File(testProjectDir.root.absolutePath + "${path}").exists()
+        return new File(temporaryFolder.root.absolutePath + "${path}").exists()
+    }
+
+    File findPathInTemporaryFolder(String path) {
+        path = normalizePath(path)
+        return new File(temporaryFolder.root.absolutePath + path)
+    }
+
+    File findOrCreatePathInTemporaryFolder(String path) {
+        File rv
+        if (existsInTemporaryFolder(path)) {
+            rv = findPathInTemporaryFolder(path)
+        } else {
+            rv = createPathInTemporaryFolder(path)
+        }
+        rv
+    }
+
+    /*
+     * @Deprecated use findPathInTemporaryFolder instead
+     */
+    @Deprecated
+    File fileInTemporaryFolder(String path) {
+        findPathInTemporaryFolder(path)
     }
 
     private String normalizePath(String path) {
@@ -34,10 +53,5 @@ class TemporaryFolderFileHelper {
             path = File.separator + path
         }
         path
-    }
-
-    File fileInTemporaryFolder(String path) {
-        path = normalizePath(path)
-        return new File(testProjectDir.root.absolutePath + path)
     }
 }

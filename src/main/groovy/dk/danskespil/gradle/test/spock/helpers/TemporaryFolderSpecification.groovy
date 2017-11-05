@@ -21,7 +21,7 @@ class TemporaryFolderSpecification extends Specification {
     // run before every feature method
     def setup() {
         buildFile = testProjectDir.newFile('build.gradle')
-        testHelper.testProjectDir = testProjectDir
+        testHelper.temporaryFolder = testProjectDir
     }
     BuildResult buildWithTasks(String... tasks) {
         return base(testProjectDir.root, tasks).build()

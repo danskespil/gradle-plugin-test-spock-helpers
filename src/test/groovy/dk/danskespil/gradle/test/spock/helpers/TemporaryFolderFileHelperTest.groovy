@@ -3,6 +3,7 @@ package dk.danskespil.gradle.test.spock.helpers
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class TemporaryFolderFileHelperTest extends Specification {
     @Rule
@@ -11,7 +12,7 @@ class TemporaryFolderFileHelperTest extends Specification {
 
     def setup() {
         cut = new TemporaryFolderFileHelper()
-        cut.testProjectDir = testProjectDir
+        cut.temporaryFolder = testProjectDir
     }
 
     def "create and write to file"() {
@@ -27,20 +28,24 @@ class TemporaryFolderFileHelperTest extends Specification {
         testProjectDir.newFile('settings.gradle').createNewFile()
 
         when:
-        File f2 = cut.fileInTemporaryFolder('settings.gradle')
+        File f2 = cut.findPathInTemporaryFolder('settings.gradle')
         f2 << "include 'project1'"
 
         then:
         new File(testProjectDir.root.absolutePath + "/settings.gradle").text.contains('include')
     }
 
-    def "create file"() {
+    @Unroll
+    def "create #file"() {
         when:
-        File createdFile = cut.createPathInTemporaryFolder('settings.gradle')
+        File createdFile = cut.createPathInTemporaryFolder(file)
 
         then:
         createdFile.exists()
-        fileIsLocatedWhereExpected(createdFile)
+        fileIsLocatedWhereExpected(file, createdFile)
+
+        where:
+        file << ['settings.gradle', 'a/b/c/file']
     }
 
     def "find file"() {
@@ -48,14 +53,28 @@ class TemporaryFolderFileHelperTest extends Specification {
         testProjectDir.newFile('settings.gradle').createNewFile()
 
         when:
-        File f = cut.fileInTemporaryFolder('settings.gradle')
+        File f = cut.findPathInTemporaryFolder('settings.gradle')
 
         then:
         f.exists()
+
     }
 
-    private void fileIsLocatedWhereExpected(File createdFile) {
-        File compareFile = new File("${testProjectDir.root.absolutePath}/settings.gradle")
+    def "find a file, or create it, if it does not exist"() {
+        given:
+        testProjectDir.newFile('settings.gradle').createNewFile()
+
+        when:
+        File wasThereBefore = cut.findOrCreatePathInTemporaryFolder('settings.gradle')
+        File wasNotThereBefore = cut.findOrCreatePathInTemporaryFolder('nonexisting')
+
+        then:
+        wasNotThereBefore.exists()
+        wasThereBefore.exists()
+    }
+
+    private void fileIsLocatedWhereExpected(String pathInTemporaryFolder, File createdFile) {
+        File compareFile = new File("${testProjectDir.root.absolutePath}/${pathInTemporaryFolder}")
         assert compareFile.absolutePath == createdFile.absolutePath
     }
 }
