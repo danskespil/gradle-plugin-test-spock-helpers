@@ -49,6 +49,8 @@ task sourcesJar(type: Jar) {
     classifier = 'sources'
 }
 
+jar.dependsOn sourcesJar
+
 publishing {
     publications {
         MyPublication(MavenPublication) {
