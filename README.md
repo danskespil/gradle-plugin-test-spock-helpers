@@ -104,3 +104,5 @@ This is just for the maintainer (me, for the moment).
     * bintrayUser=USER
     * bintrayApiKey=KEY
   * ./gradlew clean generatePomFileForMyPublicationPublication bintrayUpload
+
+Releases to bintray are not automatically published, so you have to go to bintray and click your way to the last part.
