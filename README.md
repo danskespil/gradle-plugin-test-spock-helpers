@@ -91,6 +91,9 @@ Why do you care ? You will get a working example, that is being used, and mainta
 ```
 stuff.
 
+#Example project
+https://github.com/jwermuth/gradle-plugin-terraform
+
 # Releasing and publishing
 This is just for the maintainer (me, for the moment).
 
