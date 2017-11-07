@@ -94,12 +94,13 @@ https://github.com/jwermuth/gradle-plugin-terraform
 This is just for the maintainer (me, for the moment).
 
 ## Flow
-Intermediate releases are done as milestones, 
+Want to share something that is close to ready with the world! 
 1. ./gradlew clean build release generatePomFileForMyPublicationPublication bintrayUpload -Prelease.stage=milestone -Prelease.scope=patch_or_minor_or_major 
 2. Go to bintray https://bintray.com/jwermuth/oss/gradle-plugin-test-spock-helpers and release the new packages
 
 Once happy with a full release, do a final release 
 1. ./gradlew clean build release generatePomFileForMyPublicationPublication bintrayUpload -Prelease.stage=final -Prelease.scope=patch_or_minor_or_major
+2. Go to bintray https://bintray.com/jwermuth/oss/gradle-plugin-test-spock-helpers and release the new packages
 
 ## Commands
 
