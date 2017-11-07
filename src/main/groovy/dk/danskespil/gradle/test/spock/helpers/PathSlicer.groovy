@@ -8,7 +8,7 @@ package dk.danskespil.gradle.test.spock.helpers
  */
 class PathSlicer {
     ArrayList<String> dirs
-    String fileName
+    private String fileName
     String path
     String[] dirNames
 
@@ -25,5 +25,9 @@ class PathSlicer {
         }
 
         dirNames = dirs.toArray(new String[dirs.size()])
+    }
+
+    boolean isFile() {
+        fileName != null
     }
 }

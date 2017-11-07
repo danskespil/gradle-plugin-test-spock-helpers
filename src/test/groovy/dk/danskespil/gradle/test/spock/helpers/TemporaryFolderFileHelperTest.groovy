@@ -35,6 +35,15 @@ class TemporaryFolderFileHelperTest extends Specification {
         new File(testProjectDir.root.absolutePath + "/settings.gradle").text.contains('include')
     }
 
+    def "Create dir"() {
+        when:
+        File createdDir = cut.createPathInTemporaryFolder('dir/')
+
+        then:
+        createdDir.exists()
+        createdDir.isDirectory()
+    }
+
     @Unroll
     def "create #file"() {
         when:

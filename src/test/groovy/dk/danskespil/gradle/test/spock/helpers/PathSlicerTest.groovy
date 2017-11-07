@@ -38,6 +38,7 @@ class PathSlicerTest extends Specification {
         PathSlicer cut = new PathSlicer(path)
 
         then:
+        cut.isFile()
         cut.fileName == fileName
 
         // http://spockframework.org/spock/docs/1.1/data_driven_testing.html
@@ -46,6 +47,14 @@ class PathSlicerTest extends Specification {
         'a'     | 'a'
         'a/gg'  | 'gg'
         'a/b.c' | 'b.c'
+    }
+
+    def "If path ends with '/' its interpreted as a directory"() {
+        when:
+        PathSlicer cut = new PathSlicer('a/path/')
+
+        then:
+        !cut.isFile()
     }
 
     def "When creating a nested file, I need to access the full path originally given to pathSlicer"() {

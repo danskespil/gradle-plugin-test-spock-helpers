@@ -2,10 +2,16 @@ package dk.danskespil.gradle.test.spock.helpers
 
 import org.junit.rules.TemporaryFolder
 
-// Shorthands for building a gradle project when testing
+/**
+ * Easy creation and finding of deep paths with or without files 'at the end', e.g. some/dir/ or some/file
+ * starting from the temporary folder, so you do not have to worry about where the folder is.
+ */
 class TemporaryFolderFileHelper {
     TemporaryFolder temporaryFolder
-
+    /**
+     * @param path to file, starting from the temporary folder
+     * @return the File
+     */
     File createPathInTemporaryFolder(String path) {
         File rv = null
 
@@ -19,17 +25,28 @@ class TemporaryFolderFileHelper {
         rv
     }
 
-    // Easy creation of deep paths with or without files 'at the end'
+    /**
+     * @param path to file, starting from the temporary folder
+     * @return true if the file exists
+     */
     boolean existsInTemporaryFolder(String path) {
         path = normalizePath(path)
         return new File(temporaryFolder.root.absolutePath + "${path}").exists()
     }
 
+    /**
+     * @param path to file, starting from the temporary folder
+     * @return File
+     */
     File findPathInTemporaryFolder(String path) {
         path = normalizePath(path)
         return new File(temporaryFolder.root.absolutePath + path)
     }
 
+    /**
+     * @param path to file, starting from the temporary folder
+     * @return File
+     */
     File findOrCreatePathInTemporaryFolder(String path) {
         File rv
         if (existsInTemporaryFolder(path)) {
@@ -43,6 +60,7 @@ class TemporaryFolderFileHelper {
     /*
      * @Deprecated use findPathInTemporaryFolder instead
      */
+
     @Deprecated
     File fileInTemporaryFolder(String path) {
         findPathInTemporaryFolder(path)
