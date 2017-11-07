@@ -1,9 +1,7 @@
-# gradle-test-spock-helpers
-## Status
 [![Build Status master branch](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers.svg?branch=master)](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers) Build Status master branch. 
 [ ![Download](https://api.bintray.com/packages/jwermuth/oss/gradle-plugin-test-spock-helpers/images/download.svg) ](https://bintray.com/jwermuth/oss/gradle-plugin-test-spock-helpers/_latestVersion) Latest version
 
-## Whats this project for
+# What is this repository for
 If you are using gradle and want to start testing your custom tasks or plugins, this is a project for you. 
 We are using it at [Danske Spil](https://danskespil.dk/) and [Lund&Bendsen](https://home.lundogbendsen.dk/), perhaps you
 can also benefit from it.
