@@ -6,6 +6,10 @@ import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Specification
 
+/**
+ * This is the recommended way to implement test of customs classes/plugins in gradle
+ * See also https://guides.gradle.org/testing-gradle-plugins/
+ */
 class TemporaryFolderSpecification extends Specification {
     @Delegate
     static TemporaryFolderFileHelper testHelper
