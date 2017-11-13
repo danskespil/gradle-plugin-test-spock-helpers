@@ -1,5 +1,7 @@
 package dk.danskespil.gradle.test.spock.helpers
 
+import org.gradle.api.Project
+import org.gradle.testfixtures.ProjectBuilder
 import org.gradle.testkit.runner.BuildResult
 import org.gradle.testkit.runner.GradleRunner
 import org.junit.Rule
@@ -33,6 +35,17 @@ class TemporaryFolderSpecification extends Specification {
 
     BuildResult buildAndFailWithTasks(String... tasks) {
         return base(testProjectDir.root, tasks).buildAndFail()
+    }
+
+    /**
+     * The projectbuilder is one of the 2 ways (the other is GradleRunner) to create build objects that you can test on.
+     *
+     * @return a Project
+     */
+    Project project() {
+        ProjectBuilder.builder()
+        .withProjectDir(testProjectDir.root)
+        .build()
     }
 
     private static base(File projectDir, String... tasks) {
