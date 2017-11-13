@@ -44,7 +44,6 @@ dependencies {
 Which allows you to write a test like this
 ```
 class ApplyTest extends TemporaryFolderSpecification {
-
     def "When calling custom terraform apply task, you can configure which plan file you want to read from "() {
         given:
         buildFile << """
@@ -64,8 +63,24 @@ class ApplyTest extends TemporaryFolderSpecification {
         then:
         ...
     }
-
 }
+
+class TemporaryFolderSpecificationTest extends TemporaryFolderSpecification {
+    def "easy access to projectbuilder"() {
+        given:
+        buildFile << """
+        task cut() {}
+        """
+
+        when:
+-- Shorthand -->        Project project = project()
+
+        then:
+        project
+        project.task('cut')
+    }
+}
+
 ```
 **Magic** is the easiest way I have found that will put the classes of custom tasks on the build path of the test.
 It requires that you define your custom classes in a plugin, even if you do not plan to use them as
@@ -74,7 +89,7 @@ a plugin. You can check the example project on how to create a plugin.
 **Convenience**
 Files are used a lot in tests, so there are some convenience methods for file handling added.   
 
-**Shorthand** is just a shorthand for
+**Shorthand** a shorthand for constructs used when testing gradle 
 ```groovy
 GradleRunner.create()
  .withPluginClasspath()
