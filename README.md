@@ -1,4 +1,4 @@
-[![Build Status master branch](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers.svg?branch=master)](https://travis-ci.org/jwermuth/gradle-plugin-test-spock-helpers)
+[![Build Status master branch](https://travis-ci.org/danskespil/gradle-plugin-test-spock-helpers.svg?branch=master)](https://travis-ci.org/danskespil/gradle-plugin-test-spock-helpers)
 [ ![Download](https://api.bintray.com/packages/jwermuth/oss/gradle-plugin-test-spock-helpers/images/download.svg) ](https://bintray.com/jwermuth/oss/gradle-plugin-test-spock-helpers/_latestVersion) 
 
 # What is this repository for
