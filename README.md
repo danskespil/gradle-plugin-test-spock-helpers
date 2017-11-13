@@ -101,6 +101,16 @@ which is something that you will write again and again when testing gradle custo
 # Example project
 https://github.com/danskespil/gradle-plugin-terraform
 
+# Versions
+
+## Next
+
+## 0.1.3
+
+* faster CI with travis
+* ProjectBuilder convenience method
+* updated readme
+
 # Releasing and publishing
 This is just for the maintainer (me, for the moment).
 
@@ -127,3 +137,4 @@ Once happy with a full release, do a final release
   * ./gradlew clean build generatePomFileForMyPublicationPublication bintrayUpload
 
 Releases to bintray are not automatically published, so you have to go to bintray and click your way to the last part.
+
