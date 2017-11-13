@@ -89,7 +89,7 @@ a plugin. You can check the example project on how to create a plugin.
 **Convenience**
 Files are used a lot in tests, so there are some convenience methods for file handling added.   
 
-**Shorthand** a shorthand for constructs used when testing gradle 
+**Shorthand** a shorthand for constructs used when testing gradle, e.g.    
 ```groovy
 GradleRunner.create()
  .withPluginClasspath()
@@ -98,10 +98,8 @@ GradleRunner.create()
 ```
 which is something that you will write again and again when testing gradle custom classes.
 
-
-
-#Example project
-https://github.com/jwermuth/gradle-plugin-terraform
+# Example project
+https://github.com/danskespil/gradle-plugin-terraform
 
 # Releasing and publishing
 This is just for the maintainer (me, for the moment).
