@@ -35,7 +35,7 @@ repositories {
 }
 
 dependencies {
-    testCompile 'dk.danskespil.gradle.plugins:gradle-plugin-test-spock-helpers:0.1.2'
+    testCompile 'dk.danskespil.gradle.plugins:gradle-plugin-test-spock-helpers:0.1.2' <-- see badge above for latest version
     testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
         exclude module: 'groovy-all'
     }
